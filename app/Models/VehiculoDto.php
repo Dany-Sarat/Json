@@ -9,6 +9,8 @@ class VehiculoDto extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         "id",
         "marca",
@@ -16,4 +18,6 @@ class VehiculoDto extends Model
         "color",
         "puertas"
     ];
+
+    protected $table = "vehiculos";
 }

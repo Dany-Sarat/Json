@@ -11,13 +11,18 @@ class VehiculoService
     )
     {}
 
-    public function save(Vehiculo $vehiculo)
+    public function save(Vehiculo $vehiculo): bool
     {
         return $this->vehiculoRepository->save($vehiculo);
     }
 
-    public function update(int $id, Vehiculo $vehiculo)
+    public function update(int $id, Vehiculo $vehiculo): bool
     {
         return $this->vehiculoRepository->update($id, $vehiculo);
+    }
+
+    public function findById(int $id): ?Vehiculo
+    {
+        return $this->vehiculoRepository->findById($id);
     }
 }

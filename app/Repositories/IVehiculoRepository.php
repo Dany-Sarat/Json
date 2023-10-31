@@ -7,4 +7,5 @@ interface IVehiculoRepository
 {
     public function save(Vehiculo $vehiculo): bool;
     public function update(int $id, Vehiculo $vehiculo): bool;
+    public function findById(int $id): ?Vehiculo;
 }

@@ -13,7 +13,7 @@ class VehiculoRepository implements IVehiculoRepository
     public function save(Vehiculo $vehiculo): bool
     {
         $vehiculoDto = new VehiculoDto();
-        $vehiculoDto->marca = $vehiculo->placa;
+        $vehiculoDto->placa = $vehiculo->placa;
         $vehiculoDto->modelo = $vehiculo->modelo;
         $vehiculoDto->color = $vehiculo->color;
         $vehiculoDto->puertas = $vehiculo->puertas;
@@ -35,6 +35,25 @@ class VehiculoRepository implements IVehiculoRepository
         $vehiculoDto->puertas = $vehiculo->puertas;
 
         return $vehiculoDto->save();
+    }
+
+    public function findById(int $id): ?Vehiculo
+    {
+        $vehiculoDto = VehiculoDto::find($id);
+
+        if($vehiculoDto == null) {
+            return null;
+        }
+
+        $vehiculo = new Vehiculo(
+            id: $vehiculoDto->id,
+            placa: $vehiculoDto->placa,
+            modelo: $vehiculoDto->modelo,
+            color: $vehiculoDto->color,
+            puertas: $vehiculoDto->puertas,
+        );
+
+        return $vehiculo;
     }
 
 }
