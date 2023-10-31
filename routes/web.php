@@ -17,4 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view("/home", "vehiculos.index");
+Route::view("/home", "vehiculos.index")->name("home.index");
+Route::view("/vehiculo/crear", "vehiculos.crear")->name("vehiculos.create");
