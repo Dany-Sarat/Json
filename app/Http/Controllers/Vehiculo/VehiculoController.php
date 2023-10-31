@@ -82,10 +82,10 @@ class VehiculoController extends Controller
 
         $vehiculoActualizado = new Vehiculo(
             id: $vehiculoActualizar->id,
-            placa: ($request->has("placa")) ? $request->placa : $vehiculoActualizar->placa,
-            modelo: ($request->has("modelo")) ? $request->modelo : $vehiculoActualizar->modelo ,
-            color: ($request->has("color")) ? $request->color : $vehiculoActualizar->color,
-            puertas: ($request->has("puertas")) ? $request->puertas : $vehiculoActualizar->puertas,
+            placa: ($request->has("placa") && $request->placa !== null && $request->placa !== "") ? $request->placa : $vehiculoActualizar->placa,
+            modelo: ($request->has("modelo" && $request->modelo !== null && $request->modelo !== "")) ? $request->modelo : $vehiculoActualizar->modelo ,
+            color: ($request->has("color") && $request->color !== null && $request->color !== "") ? $request->color : $vehiculoActualizar->color,
+            puertas: ($request->has("puertas") && $request->puertas !== null && $request->puertas !== "0") ? $request->puertas : $vehiculoActualizar->puertas,
         );
 
 

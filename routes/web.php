@@ -19,3 +19,4 @@ Route::get('/', function () {
 
 Route::view("/home", "vehiculos.index")->name("home.index");
 Route::view("/vehiculo/crear", "vehiculos.crear")->name("vehiculos.create");
+Route::view("/vehiculo/editar", "vehiculos.actualizar")->name("vehiculos.update");
